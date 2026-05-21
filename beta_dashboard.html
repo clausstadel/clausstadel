@@ -90,9 +90,9 @@
   .kpi-cell:last-child { border-right: none; }
   .kpi-label { font-size: 10px; color: var(--text-2); margin-bottom: 4px; }
   .kpi-num   { font-size: 24px; font-weight: 600; line-height: 1; color: var(--text); }
-  .kpi-num.green { color: var(--green); }
-  .kpi-sub   { font-size: 10px; color: var(--text-3); margin-top: 3px; }
-  .kpi-sub.green { color: var(--green); }
+  .kpi-num.green { color: var(--text); }
+  .kpi-sub   { font-size: 10px; color: var(--text-2); margin-top: 3px; }
+  .kpi-sub.green { color: var(--text-2); }
 
   /* Main two-col layout */
   .main-layout {
@@ -203,7 +203,7 @@
       <div class="kpi-cell">
         <div class="kpi-label">Users still on beta</div>
         <div class="kpi-num green">41</div>
-        <div class="kpi-sub green">69% retention</div>
+        <div class="kpi-sub" style="color:var(--red);">↓ 69% retention</div>
       </div>
       <div class="kpi-cell">
         <div class="kpi-label">Users exposed to banner</div>
@@ -212,7 +212,7 @@
       <div class="kpi-cell">
         <div class="kpi-label">Converted via banner</div>
         <div class="kpi-num green">44</div>
-        <div class="kpi-sub green">11% conversion</div>
+        <div class="kpi-sub" style="color:var(--text-2);">→ 11% conversion</div>
       </div>
     </div>
 
@@ -442,13 +442,19 @@
     <div class="card-body">
       <div class="bug-grid">
         <div>
-          <div class="bug-tag">Navigation</div>
+          <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+            <div class="bug-tag" style="margin-bottom:0;">Navigation</div>
+            <div class="bug-tag" style="margin-bottom:0; background:#0d2818; color:#22c55e; border-color:#166534;">✓ Done</div>
+          </div>
           <div class="bug-title">CAP jumps to weekly view</div>
           <div class="bug-desc">Clicking CAP navigates to week view instead of the CAP page</div>
           <div class="bug-user">...@triburg-indianinc.com</div>
         </div>
         <div>
-          <div class="bug-tag">Media</div>
+          <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+            <div class="bug-tag" style="margin-bottom:0;">Media</div>
+            <div class="bug-tag" style="margin-bottom:0; background:#2d1f06; color:#fbbf24; border-color:#78350f;">Cannot Reproduce</div>
+          </div>
           <div class="bug-title">Video broken in reports</div>
           <div class="bug-desc">Video playback fails on the inspection report page</div>
           <div class="bug-user">...@rowico.com</div>
