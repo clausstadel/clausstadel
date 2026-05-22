@@ -71,6 +71,19 @@
     letter-spacing: 0.05em;
     flex-shrink: 0;
   }
+  .detail-section-header {
+    padding: 10px 14px;
+    font-size: 12px; font-weight: 600;
+    color: var(--text-2);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .detail-section { border-bottom: 1px solid var(--border); }
+  .detail-section:last-child { border-bottom: none; }
+  .detail-section-body { padding: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 14px; }
   .card-body {
     padding: 14px;
     flex: 1;
@@ -94,8 +107,7 @@
 
   /* Main two-col layout */
   .main-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 12px;
     flex: 1;
     min-height: 0;
@@ -106,6 +118,16 @@
     gap: 12px;
     min-height: 0;
   }
+  .left-col {
+    flex: 1;
+    min-width: 50%;
+    container-type: inline-size;
+  }
+  .right-col {
+    flex: 0 0 auto;
+    max-width: 850px;
+    width: 850px;
+  }
 
   .two-grid {
     display: grid;
@@ -115,6 +137,18 @@
     min-height: 0;
   }
   .two-grid .card { flex: 1; }
+
+  .quad-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    flex: none;
+  }
+  @container (min-width: 1476px) {
+    .quad-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 
   /* Bar charts */
   .bar-row { display: flex; flex-direction: column; gap: 9px; }
@@ -155,15 +189,6 @@
   .legend-item  { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-2); }
   .legend-line  { width: 18px; height: 3px; border-radius: 2px; }
 
-  /* Bottom row */
-  .bottom-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    flex-shrink: 0;
-  }
-  .bottom-right { display: flex; flex-direction: column; gap: 12px; }
-
   .footer-note {
     padding-top: 10px; border-top: 1px solid var(--border);
     font-size: 10px; color: var(--text-3); display: flex; justify-content: space-between;
@@ -171,7 +196,7 @@
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  .header, .kpi-row, .main-layout, .bottom-row { animation: fadeUp 0.4s ease both; }
+  .header, .main-layout { animation: fadeUp 0.4s ease both; }
 </style>
 </head>
 <body>
@@ -220,7 +245,7 @@
       </div>
     </div>
 
-    <div class="two-grid">
+    <div class="quad-grid">
       <div class="card">
         <div class="card-header">Beta user state — 71 total</div>
         <div class="card-body">
@@ -256,9 +281,7 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="two-grid">
       <div class="card">
         <div class="card-header">Why they switched back — 13 of 23</div>
         <div class="card-body">
@@ -303,6 +326,75 @@
           </div>
         </div>
       </div>
+
+    </div>
+
+    <!-- Scrollable switchback detail -->
+    <div class="card" style="flex: 1; min-height: 0;">
+      <div class="card-header">Switch back comments</div>
+      <div class="card-body" style="padding: 0; overflow-y: auto; min-height: 0;">
+
+        <div class="detail-section">
+          <div class="detail-section-header">Bugs causing abandonment — 2 responses</div>
+          <div class="detail-section-body">
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0;">Navigation</div>
+                <div class="bug-tag" style="margin-bottom:0; background:#0d2818; color:#22c55e; border-color:#166534;">✓ Done</div>
+              </div>
+              <div class="bug-title">CAP jumps to weekly view</div>
+              <div class="bug-desc">Clicking CAP navigates to week view instead of the CAP page</div>
+              <div class="bug-user">...@triburg-indianinc.com</div>
+            </div>
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0;">Media</div>
+                <div class="bug-tag" style="margin-bottom:0; background:#2d1f06; color:#fbbf24; border-color:#78350f;">Cannot Reproduce</div>
+              </div>
+              <div class="bug-title">Video broken in reports</div>
+              <div class="bug-desc">Video playback fails on the inspection report page</div>
+              <div class="bug-user">...@rowico.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-header">Design feedback — 2 of 4 "didn't like" elaborated</div>
+          <div class="detail-section-body">
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Search</div>
+                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">To Do</div>
+              </div>
+              <div class="bug-title">Search results not good</div>
+              <div class="bug-desc">"fk version, searching result not good."</div>
+              <div class="bug-user">...@expondo.com</div>
+            </div>
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Layout</div>
+                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">To Do</div>
+              </div>
+              <div class="bug-title">Screen too small to view photos</div>
+              <div class="bug-desc">"It's not great; the screen is too small, which makes it hard to view photos"</div>
+              <div class="bug-user">...@bymartasia.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-header">Other reasons — 1 response</div>
+          <div class="detail-section-body">
+            <div>
+              <div class="bug-tag" style="margin-bottom:5px; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">Other</div>
+              <div class="bug-title">Not yet familiar with the new interface</div>
+              <div class="bug-desc">Not yet familiar with the new interface — likely re-engageable</div>
+              <div class="bug-user">...@neptune.com</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -335,74 +427,44 @@
           <text x="790" y="144" text-anchor="start" font-size="10" fill="#555e78">25%</text>
           <text x="790" y="184" text-anchor="start" font-size="10" fill="#555e78">0%</text>
           <text x="80"  y="198" text-anchor="middle" font-size="11" fill="#8b92a8">19 May</text>
-          <text x="190" y="198" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
           <text x="300" y="198" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
-          <text x="410" y="198" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
           <text x="520" y="198" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
-          <text x="630" y="198" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
           <text x="740" y="198" text-anchor="middle" font-size="11" fill="#8b92a8">22 May</text>
-          <!-- total: scale y=180-val*2 → 40=100, 51=78, 54=72, 59=62, 66=48, 68=44, 71=38 -->
-          <line x1="80"  y1="100" x2="190" y2="78"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="190" y1="78"  x2="300" y2="72"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="300" y1="72"  x2="410" y2="62"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="410" y1="62"  x2="520" y2="48"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="520" y1="48"  x2="630" y2="44"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="630" y1="44"  x2="740" y2="38"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- total: scale y=180-val*2 → 40=100, 54=72, 68=44, 71=38 -->
+          <line x1="80"  y1="100" x2="300" y2="72"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="300" y1="72"  x2="520" y2="44"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="520" y1="44"  x2="740" y2="38"  stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
           <circle cx="80"  cy="100" r="5" fill="#22c55e"/>
-          <circle cx="190" cy="78"  r="5" fill="#22c55e"/>
           <circle cx="300" cy="72"  r="5" fill="#22c55e"/>
-          <circle cx="410" cy="62"  r="5" fill="#22c55e"/>
-          <circle cx="520" cy="48"  r="5" fill="#22c55e"/>
-          <circle cx="630" cy="44"  r="5" fill="#22c55e"/>
+          <circle cx="520" cy="44"  r="5" fill="#22c55e"/>
           <circle cx="740" cy="38"  r="5" fill="#22c55e"/>
           <text x="80"  y="91"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">40</text>
-          <text x="190" y="69"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">51</text>
           <text x="300" y="63"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">54</text>
-          <text x="410" y="53"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">59</text>
-          <text x="520" y="39"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">66</text>
-          <text x="630" y="35"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">68</text>
+          <text x="520" y="35"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">68</text>
           <text x="755" y="29"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">71</text>
-          <!-- still: 32=116, 38=104, 40=100, 41=98, 45=90, 47=86, 48=84 -->
-          <line x1="80"  y1="116" x2="190" y2="104" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="190" y1="104" x2="300" y2="100" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="300" y1="100" x2="410" y2="98"  stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="410" y1="98"  x2="520" y2="90"  stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="520" y1="90"  x2="630" y2="86"  stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="630" y1="86"  x2="740" y2="84"  stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- still: 32=116, 40=100, 47=86, 48=84 -->
+          <line x1="80"  y1="116" x2="300" y2="100" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="300" y1="100" x2="520" y2="86"  stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="520" y1="86"  x2="740" y2="84"  stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
           <circle cx="80"  cy="116" r="5" fill="#60a5fa"/>
-          <circle cx="190" cy="104" r="5" fill="#60a5fa"/>
           <circle cx="300" cy="100" r="5" fill="#60a5fa"/>
-          <circle cx="410" cy="98"  r="5" fill="#60a5fa"/>
-          <circle cx="520" cy="90"  r="5" fill="#60a5fa"/>
-          <circle cx="630" cy="86"  r="5" fill="#60a5fa"/>
+          <circle cx="520" cy="86"  r="5" fill="#60a5fa"/>
           <circle cx="740" cy="84"  r="5" fill="#60a5fa"/>
           <text x="65"  y="130" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">32</text>
-          <text x="175" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">38</text>
           <text x="285" y="114" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">40</text>
-          <text x="395" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">41</text>
-          <text x="505" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">45</text>
-          <text x="615" y="100" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">47</text>
+          <text x="505" y="100" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">47</text>
           <text x="755" y="98"  text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">48</text>
-          <!-- retention: y=180-pct*1.6 → 80%=52, 75%=60, 74%=61.6, 69%=69.6, 68%=71.2, 69%=69.6, 68%=71.2 -->
-          <line x1="80"  y1="52"   x2="190" y2="60"   stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="190" y1="60"   x2="300" y2="61.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="300" y1="61.6" x2="410" y2="69.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="410" y1="69.6" x2="520" y2="71.2" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="520" y1="71.2" x2="630" y2="69.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="630" y1="69.6" x2="740" y2="71.2" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <!-- retention: y=180-pct*1.6 → 80%=52, 74%=61.6, 69%=69.6, 68%=71.2 -->
+          <line x1="80"  y1="52"   x2="300" y2="61.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="300" y1="61.6" x2="520" y2="69.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="520" y1="69.6" x2="740" y2="71.2" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
           <circle cx="80"  cy="52"   r="5" fill="#fbbf24"/>
-          <circle cx="190" cy="60"   r="5" fill="#fbbf24"/>
           <circle cx="300" cy="61.6" r="5" fill="#fbbf24"/>
-          <circle cx="410" cy="69.6" r="5" fill="#fbbf24"/>
-          <circle cx="520" cy="71.2" r="5" fill="#fbbf24"/>
-          <circle cx="630" cy="69.6" r="5" fill="#fbbf24"/>
+          <circle cx="520" cy="69.6" r="5" fill="#fbbf24"/>
           <circle cx="740" cy="71.2" r="5" fill="#fbbf24"/>
           <text x="65"  y="44"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">80%</text>
-          <text x="175" y="52"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">75%</text>
           <text x="285" y="53"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">74%</text>
-          <text x="395" y="61"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">69%</text>
-          <text x="505" y="63"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">68%</text>
-          <text x="615" y="61"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">69%</text>
+          <text x="505" y="61"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">69%</text>
           <text x="755" y="63"  text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">68%</text>
         </svg>
       </div>
@@ -433,74 +495,44 @@
           <text x="790" y="129" text-anchor="start" font-size="10" fill="#555e78">25%</text>
           <text x="790" y="144" text-anchor="start" font-size="10" fill="#555e78">0%</text>
           <text x="80"  y="158" text-anchor="middle" font-size="11" fill="#8b92a8">19 May</text>
-          <text x="190" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
           <text x="300" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
-          <text x="410" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
           <text x="520" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
-          <text x="630" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
           <text x="740" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">22 May</text>
-          <!-- exposures: scale y=140-val*0.24 → 302=67.5, 357=54.3, 376=49.8, 401=43.8, 428=37.3, 432=36.3, 456=30.6 -->
-          <line x1="80"  y1="67.5" x2="190" y2="54.3" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="190" y1="54.3" x2="300" y2="49.8" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="300" y1="49.8" x2="410" y2="43.8" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="410" y1="43.8" x2="520" y2="37.3" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="520" y1="37.3" x2="630" y2="36.3" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="630" y1="36.3" x2="740" y2="30.6" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- exposures: scale y=140-val*0.24 → 302=67.5, 376=49.8, 432=36.3, 456=30.6 -->
+          <line x1="80"  y1="67.5" x2="300" y2="49.8" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="300" y1="49.8" x2="520" y2="36.3" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="520" y1="36.3" x2="740" y2="30.6" stroke="#8b92a8" stroke-width="2.5" stroke-linecap="round"/>
           <circle cx="80"  cy="67.5" r="5" fill="#8b92a8"/>
-          <circle cx="190" cy="54.3" r="5" fill="#8b92a8"/>
           <circle cx="300" cy="49.8" r="5" fill="#8b92a8"/>
-          <circle cx="410" cy="43.8" r="5" fill="#8b92a8"/>
-          <circle cx="520" cy="37.3" r="5" fill="#8b92a8"/>
-          <circle cx="630" cy="36.3" r="5" fill="#8b92a8"/>
+          <circle cx="520" cy="36.3" r="5" fill="#8b92a8"/>
           <circle cx="740" cy="30.6" r="5" fill="#8b92a8"/>
           <text x="80"  y="59"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">302</text>
-          <text x="190" y="46"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">357</text>
           <text x="300" y="41"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">376</text>
-          <text x="410" y="35"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">401</text>
-          <text x="520" y="29"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">428</text>
-          <text x="630" y="28"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">432</text>
+          <text x="520" y="28"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">432</text>
           <text x="755" y="22"  text-anchor="middle" font-size="12" font-weight="600" fill="#8b92a8">456</text>
-          <!-- conversions: scale same → 33=132.1, 39=130.6, 41=130.2, 44=129.4, 49=128.2, 51=127.8, 54=127.0 -->
-          <line x1="80"  y1="132.1" x2="190" y2="130.6" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="190" y1="130.6" x2="300" y2="130.2" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="300" y1="130.2" x2="410" y2="129.4" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="410" y1="129.4" x2="520" y2="128.2" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="520" y1="128.2" x2="630" y2="127.8" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="630" y1="127.8" x2="740" y2="127.0" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- conversions: scale same → 33=132.1, 41=130.2, 51=127.8, 54=127.0 -->
+          <line x1="80"  y1="132.1" x2="300" y2="130.2" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="300" y1="130.2" x2="520" y2="127.8" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="520" y1="127.8" x2="740" y2="127.0" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
           <circle cx="80"  cy="132.1" r="5" fill="#22c55e"/>
-          <circle cx="190" cy="130.6" r="5" fill="#22c55e"/>
           <circle cx="300" cy="130.2" r="5" fill="#22c55e"/>
-          <circle cx="410" cy="129.4" r="5" fill="#22c55e"/>
-          <circle cx="520" cy="128.2" r="5" fill="#22c55e"/>
-          <circle cx="630" cy="127.8" r="5" fill="#22c55e"/>
+          <circle cx="520" cy="127.8" r="5" fill="#22c55e"/>
           <circle cx="740" cy="127.0" r="5" fill="#22c55e"/>
           <text x="65"  y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">33</text>
-          <text x="175" y="122" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">39</text>
           <text x="285" y="122" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">41</text>
-          <text x="395" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">44</text>
-          <text x="505" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">49</text>
-          <text x="615" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">51</text>
+          <text x="505" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">51</text>
           <text x="755" y="119" text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">54</text>
           <!-- rate: 11% → y=126.8; 12% → y=125.6 -->
-          <line x1="80"  y1="126.8" x2="190" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="190" y1="126.8" x2="300" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="300" y1="126.8" x2="410" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="410" y1="126.8" x2="520" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="520" y1="126.8" x2="630" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-          <line x1="630" y1="125.6" x2="740" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="80"  y1="126.8" x2="300" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="300" y1="126.8" x2="520" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="520" y1="125.6" x2="740" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
           <circle cx="80"  cy="126.8" r="5" fill="#fbbf24"/>
-          <circle cx="190" cy="126.8" r="5" fill="#fbbf24"/>
           <circle cx="300" cy="126.8" r="5" fill="#fbbf24"/>
-          <circle cx="410" cy="126.8" r="5" fill="#fbbf24"/>
-          <circle cx="520" cy="126.8" r="5" fill="#fbbf24"/>
-          <circle cx="630" cy="125.6" r="5" fill="#fbbf24"/>
+          <circle cx="520" cy="125.6" r="5" fill="#fbbf24"/>
           <circle cx="740" cy="125.6" r="5" fill="#fbbf24"/>
           <text x="80"  y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
-          <text x="190" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
           <text x="300" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
-          <text x="410" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
-          <text x="520" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
-          <text x="630" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
+          <text x="520" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
           <text x="755" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
         </svg>
       </div>
@@ -563,76 +595,6 @@
     </div>
 
   </div>
-</div>
-
-<!-- Bottom row: bugs left, design+other stacked right -->
-<div class="bottom-row">
-
-  <div class="card">
-    <div class="card-header">Bugs causing abandonment — fix to recover retention</div>
-    <div class="card-body">
-      <div class="bug-grid">
-        <div>
-          <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-            <div class="bug-tag" style="margin-bottom:0;">Navigation</div>
-            <div class="bug-tag" style="margin-bottom:0; background:#0d2818; color:#22c55e; border-color:#166534;">✓ Done</div>
-          </div>
-          <div class="bug-title">CAP jumps to weekly view</div>
-          <div class="bug-desc">Clicking CAP navigates to week view instead of the CAP page</div>
-          <div class="bug-user">...@triburg-indianinc.com</div>
-        </div>
-        <div>
-          <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-            <div class="bug-tag" style="margin-bottom:0;">Media</div>
-            <div class="bug-tag" style="margin-bottom:0; background:#2d1f06; color:#fbbf24; border-color:#78350f;">Cannot Reproduce</div>
-          </div>
-          <div class="bug-title">Video broken in reports</div>
-          <div class="bug-desc">Video playback fails on the inspection report page</div>
-          <div class="bug-user">...@rowico.com</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="bottom-right">
-    <div class="card">
-      <div class="card-header">Design feedback — 2 of 4 "didn't like" elaborated</div>
-      <div class="card-body">
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div>
-            <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-              <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Search</div>
-              <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">To Do</div>
-            </div>
-            <div class="bug-title">Search results not good</div>
-            <div class="bug-desc">"fk version, searching result not good."</div>
-            <div class="bug-user">...@expondo.com</div>
-          </div>
-          <div>
-            <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-              <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Layout</div>
-              <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">To Do</div>
-            </div>
-            <div class="bug-title">Screen too small to view photos</div>
-            <div class="bug-desc">"It's not great; the screen is too small, which makes it hard to view photos"</div>
-            <div class="bug-user">...@bymartasia.com</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">Other reasons — 1 response</div>
-      <div class="card-body">
-        <div>
-          <div class="bug-tag" style="background:var(--bg-3); color:var(--text-2); border-color:var(--border);">Other</div>
-          <div class="bug-title">Not yet familiar with the new interface</div>
-          <div class="bug-desc">Not yet familiar with the new interface — likely re-engageable</div>
-          <div class="bug-user">...@neptune.com</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <div class="footer-note">
