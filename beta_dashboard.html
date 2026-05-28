@@ -239,9 +239,8 @@
         <div class="kpi-sub">20% of exposed</div>
       </div>
       <div class="kpi-cell">
-        <div class="kpi-label">Daily new users</div>
-        <div class="kpi-num">6</div>
-        <div class="kpi-sub">4-day moving avg</div>
+        <div class="kpi-label">New users today</div>
+        <div class="kpi-num">7</div>
       </div>
     </div>
 
@@ -521,7 +520,6 @@
       <div class="card-header">Banner performance over time</div>
       <div class="card-body">
         <div class="chart-legend">
-          <div class="legend-item"><div class="legend-line" style="background:#8b92a8;"></div> Exposures</div>
           <div class="legend-item"><div class="legend-line" style="background:#22c55e;"></div> Conversions</div>
           <div class="legend-item"><div class="legend-line" style="background:#fbbf24;"></div> Conversion rate</div>
         </div>
@@ -531,64 +529,73 @@
           <line x1="60" y1="90"  x2="780" y2="90"  stroke="#1e2235" stroke-width="1"/>
           <line x1="60" y1="125" x2="780" y2="125" stroke="#1e2235" stroke-width="1"/>
           <line x1="60" y1="140" x2="780" y2="140" stroke="#2e3347" stroke-width="1"/>
-          <text x="50" y="24"  text-anchor="end" font-size="10" fill="#555e78">25</text>
-          <text x="50" y="59"  text-anchor="end" font-size="10" fill="#555e78">20</text>
-          <text x="50" y="94"  text-anchor="end" font-size="10" fill="#555e78">15</text>
-          <text x="790" y="120" text-anchor="start" font-size="10" fill="#555e78">5%</text>
-          <!-- 9 bars: centers at 100, 180, 260, 340, 420, 500, 580, 660, 740 (step 80) -->
-          <!-- 5% exposure rate line at y=116 -->
-          <line x1="100" y1="116" x2="180" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="180" y1="116" x2="260" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="260" y1="116" x2="340" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="340" y1="116" x2="420" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="420" y1="116" x2="500" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="500" y1="116" x2="580" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="580" y1="116" x2="660" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="660" y1="116" x2="740" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <circle cx="100" cy="116" r="4" fill="#555e78"/>
-          <circle cx="180" cy="116" r="4" fill="#555e78"/>
-          <circle cx="260" cy="116" r="4" fill="#555e78"/>
-          <circle cx="340" cy="116" r="4" fill="#555e78"/>
-          <circle cx="420" cy="116" r="4" fill="#555e78"/>
-          <circle cx="500" cy="116" r="4" fill="#555e78"/>
-          <circle cx="580" cy="116" r="4" fill="#555e78"/>
-          <circle cx="660" cy="116" r="4" fill="#555e78"/>
-          <circle cx="740" cy="116" r="4" fill="#555e78"/>
+          <text x="50" y="24"  text-anchor="end" font-size="10" fill="#555e78">100</text>
+          <text x="50" y="59"  text-anchor="end" font-size="10" fill="#555e78">75</text>
+          <text x="50" y="94"  text-anchor="end" font-size="10" fill="#555e78">50</text>
+          <text x="50" y="129" text-anchor="end" font-size="10" fill="#555e78">25</text>
           <text x="50" y="144" text-anchor="end" font-size="10" fill="#555e78">0</text>
-          <text x="100" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">18 May</text>
-          <text x="180" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">19 May</text>
-          <text x="260" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
-          <text x="340" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
-          <text x="420" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">22 May</text>
-          <text x="500" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">23 May</text>
-          <text x="580" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">26 May</text>
-          <text x="660" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">27 May</text>
+          <text x="790" y="24"  text-anchor="start" font-size="10" fill="#555e78">100%</text>
+          <text x="790" y="59"  text-anchor="start" font-size="10" fill="#555e78">75%</text>
+          <text x="790" y="94"  text-anchor="start" font-size="10" fill="#555e78">50%</text>
+          <text x="790" y="129" text-anchor="start" font-size="10" fill="#555e78">25%</text>
+          <text x="790" y="144" text-anchor="start" font-size="10" fill="#555e78">0%</text>
+          <!-- x positions: 80, 174, 269, 363, 457, 551, 646, 740 (8 points, step ~94) -->
+          <text x="80"  y="158" text-anchor="middle" font-size="11" fill="#8b92a8">19 May</text>
+          <text x="174" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
+          <text x="269" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
+          <text x="363" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">22 May</text>
+          <text x="457" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">23 May</text>
+          <text x="551" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">26 May</text>
+          <text x="646" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">27 May</text>
           <text x="740" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">28 May</text>
-          <!-- bars: scale 0-25 → 120px (y=20 to y=140), factor=4.8. rect x = center-22, width=44 -->
-          <!-- 18=20: h=96, y=44 | 19=20: h=96, y=44 | 20=14: h=67.2, y=72.8 | 21=14: h=67.2, y=72.8 -->
-          <!-- 22=8: h=38.4, y=101.6 | 23=6: h=28.8, y=111.2 | 26=8: h=38.4, y=101.6 | 27=4: h=19.2, y=120.8 | 28=7: h=33.6, y=106.4 -->
-          <rect x="78"  y="44"    width="44" height="96"   fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="158" y="44"    width="44" height="96"   fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="238" y="72.8"  width="44" height="67.2" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="318" y="72.8"  width="44" height="67.2" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="398" y="101.6" width="44" height="38.4" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="478" y="111.2" width="44" height="28.8" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="558" y="101.6" width="44" height="38.4" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="638" y="120.8" width="44" height="19.2" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="718" y="106.4" width="44" height="33.6" fill="#22c55e" opacity="0.85" rx="2"/>
-          <!-- value labels -->
-          <text x="100" y="36"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">20</text>
-          <text x="180" y="36"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">20</text>
-          <text x="260" y="65"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">14</text>
-          <text x="340" y="65"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">14</text>
-          <text x="420" y="94"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">8</text>
-          <text x="500" y="103"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">6</text>
-          <text x="580" y="94"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">8</text>
-          <text x="660" y="113"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">4</text>
-          <text x="740" y="99"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">7</text>
-          <!-- 4-day moving average: (6+8+4+7)/4=6.25→6 → y=140-6*4.8=111.2 -->
-          <circle cx="740" cy="111.2" r="5" fill="#fbbf24"/>
-          <text x="740" y="103"  text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">6</text>
+          <!-- conversions (green): y=140-val*1.2 → scale 0-100 over 120px -->
+          <line x1="80"  y1="100.4" x2="174" y2="90.8" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="174" y1="90.8"  x2="269" y2="78.8" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="269" y1="78.8"  x2="363" y2="72.8" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="363" y1="72.8"  x2="457" y2="69.2" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="457" y1="69.2"  x2="551" y2="62.8" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="551" y1="62.8"  x2="646" y2="59.6" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="646" y1="59.6"  x2="740" y2="58.4" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="80"  cy="100.4" r="5" fill="#22c55e"/>
+          <circle cx="174" cy="90.8"  r="5" fill="#22c55e"/>
+          <circle cx="269" cy="78.8"  r="5" fill="#22c55e"/>
+          <circle cx="363" cy="72.8"  r="5" fill="#22c55e"/>
+          <circle cx="457" cy="69.2"  r="5" fill="#22c55e"/>
+          <circle cx="551" cy="62.8"  r="5" fill="#22c55e"/>
+          <circle cx="646" cy="59.6"  r="5" fill="#22c55e"/>
+          <circle cx="740" cy="58.4"  r="5" fill="#22c55e"/>
+          <text x="80"  y="92"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">33</text>
+          <text x="174" y="82"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">41</text>
+          <text x="269" y="70"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">51</text>
+          <text x="363" y="64"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">56</text>
+          <text x="457" y="61"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">59</text>
+          <text x="551" y="54"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">64</text>
+          <text x="646" y="51"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">67</text>
+          <text x="740" y="50"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">68</text>
+          <!-- rate (amber dashed): y=140-pct*1.2 → 11%=126.8, 12%=125.6 -->
+          <line x1="80"  y1="126.8" x2="174" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="174" y1="126.8" x2="269" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="269" y1="125.6" x2="363" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="363" y1="125.6" x2="457" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="457" y1="125.6" x2="551" y2="125.6" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="551" y1="125.6" x2="646" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <line x1="646" y1="126.8" x2="740" y2="126.8" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+          <circle cx="80"  cy="126.8" r="5" fill="#fbbf24"/>
+          <circle cx="174" cy="126.8" r="5" fill="#fbbf24"/>
+          <circle cx="269" cy="125.6" r="5" fill="#fbbf24"/>
+          <circle cx="363" cy="125.6" r="5" fill="#fbbf24"/>
+          <circle cx="457" cy="125.6" r="5" fill="#fbbf24"/>
+          <circle cx="551" cy="125.6" r="5" fill="#fbbf24"/>
+          <circle cx="646" cy="126.8" r="5" fill="#fbbf24"/>
+          <circle cx="740" cy="126.8" r="5" fill="#fbbf24"/>
+          <text x="65"  y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
+          <text x="159" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
+          <text x="254" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
+          <text x="348" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
+          <text x="442" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
+          <text x="536" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">12%</text>
+          <text x="631" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
+          <text x="755" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">11%</text>
         </svg>
       </div>
     </div>
@@ -598,10 +605,10 @@
       <div class="card-header">New beta users per day</div>
       <div class="card-body">
         <div class="chart-legend">
-          <div class="legend-item"><div class="legend-line" style="background:#22c55e;"></div> New users</div>
-          <div class="legend-item"><div class="legend-line" style="background:#fbbf24; border-radius:50%; width:10px; height:10px;"></div> 4-day moving avg</div>
-          <div class="legend-item"><div class="legend-line" style="background:#555e78;"></div> % exposed to banner</div>
-          <div class="legend-item" style="font-size:10px; color:var(--text-3);">May 19 snapshot split equally across May 18–19</div>
+          <div class="legend-item"><div class="legend-line" style="background:#22c55e;"></div> Banner</div>
+          <div class="legend-item"><div class="legend-line" style="background:#fbbf24;"></div> Direct link</div>
+          <div class="legend-item"><div class="legend-line" style="background:#ffffff;"></div> User share exposed to banner</div>
+          <div class="legend-item" style="font-size:10px; color:var(--text-3);">Referral split estimated for May 18–22 (exact from May 23)</div>
         </div>
         <svg viewBox="0 0 820 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
           <line x1="60" y1="20"  x2="780" y2="20"  stroke="#1e2235" stroke-width="1"/>
@@ -609,59 +616,71 @@
           <line x1="60" y1="90"  x2="780" y2="90"  stroke="#1e2235" stroke-width="1"/>
           <line x1="60" y1="125" x2="780" y2="125" stroke="#1e2235" stroke-width="1"/>
           <line x1="60" y1="140" x2="780" y2="140" stroke="#2e3347" stroke-width="1"/>
-          <text x="50" y="24"  text-anchor="end" font-size="10" fill="#555e78">25</text>
-          <text x="50" y="59"  text-anchor="end" font-size="10" fill="#555e78">20</text>
-          <text x="50" y="94"  text-anchor="end" font-size="10" fill="#555e78">15</text>
-          <text x="790" y="120" text-anchor="start" font-size="10" fill="#555e78">5%</text>
-          <!-- 8 bars: centers at 105, 195, 285, 375, 465, 555, 645, 735 (step 90) -->
-          <!-- 5% exposure rate line at y=116 -->
-          <line x1="105" y1="116" x2="195" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="195" y1="116" x2="285" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="285" y1="116" x2="375" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="375" y1="116" x2="465" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="465" y1="116" x2="555" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="555" y1="116" x2="645" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <line x1="645" y1="116" x2="735" y2="116" stroke="#555e78" stroke-width="1.5" stroke-dasharray="5,3"/>
-          <circle cx="105" cy="116" r="4" fill="#555e78"/>
-          <circle cx="195" cy="116" r="4" fill="#555e78"/>
-          <circle cx="285" cy="116" r="4" fill="#555e78"/>
-          <circle cx="375" cy="116" r="4" fill="#555e78"/>
-          <circle cx="465" cy="116" r="4" fill="#555e78"/>
-          <circle cx="555" cy="116" r="4" fill="#555e78"/>
-          <circle cx="645" cy="116" r="4" fill="#555e78"/>
-          <circle cx="735" cy="116" r="4" fill="#555e78"/>
-          <text x="50" y="144" text-anchor="end" font-size="10" fill="#555e78">0</text>
-          <text x="105" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">18 May</text>
-          <text x="195" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">19 May</text>
-          <text x="285" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
-          <text x="375" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
-          <text x="465" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">22 May</text>
-          <text x="555" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">23 May</text>
-          <text x="645" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">26 May</text>
-          <text x="735" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">27 May</text>
-          <!-- bars: scale 0-25 → 120px (y=20 to y=140), factor=4.8. rect x = center-25, width=50 -->
-          <!-- 18=20: h=96, y=44 | 19=20: h=96, y=44 | 20=14: h=67.2, y=72.8 | 21=14: h=67.2, y=72.8 -->
-          <!-- 22=8: h=38.4, y=101.6 | 23=6: h=28.8, y=111.2 | 26=8: h=38.4, y=101.6 | 27=2: h=9.6, y=130.4 -->
-          <rect x="80"  y="44"    width="50" height="96"   fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="170" y="44"    width="50" height="96"   fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="260" y="72.8"  width="50" height="67.2" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="350" y="72.8"  width="50" height="67.2" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="440" y="101.6" width="50" height="38.4" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="530" y="111.2" width="50" height="28.8" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="620" y="101.6" width="50" height="38.4" fill="#22c55e" opacity="0.85" rx="2"/>
-          <rect x="710" y="120.8" width="50" height="19.2" fill="#22c55e" opacity="0.85" rx="2"/>
+          <text x="50" y="24"  text-anchor="end" font-size="10" fill="#8b92a8">25</text>
+          <text x="50" y="59"  text-anchor="end" font-size="10" fill="#8b92a8">20</text>
+          <text x="50" y="94"  text-anchor="end" font-size="10" fill="#8b92a8">15</text>
+          <text x="50" y="144" text-anchor="end" font-size="10" fill="#8b92a8">0</text>
+          <text x="790" y="24"  text-anchor="start" font-size="10" fill="#555e78">25%</text>
+          <text x="790" y="59"  text-anchor="start" font-size="10" fill="#555e78">20%</text>
+          <text x="790" y="94"  text-anchor="start" font-size="10" fill="#555e78">15%</text>
+          <text x="790" y="144" text-anchor="start" font-size="10" fill="#555e78">0%</text>
+          <!-- date labels -->
+          <text x="100" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">18 May</text>
+          <text x="180" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">19 May</text>
+          <text x="260" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">20 May</text>
+          <text x="340" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">21 May</text>
+          <text x="420" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">22 May</text>
+          <text x="500" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">23 May</text>
+          <text x="580" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">26 May</text>
+          <text x="660" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">27 May</text>
+          <text x="740" y="158" text-anchor="middle" font-size="11" fill="#8b92a8">28 May</text>
+          <!-- stacked bars: bottom=banner(green), top=direct(amber) -->
+          <rect x="78" y="44.0" width="44" height="28.8" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="78" y="72.8" width="44" height="67.2" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="158" y="44.0" width="44" height="28.8" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="158" y="72.8" width="44" height="67.2" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="238" y="72.8" width="44" height="19.2" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="238" y="92.0" width="44" height="48.0" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="318" y="72.8" width="44" height="19.2" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="318" y="92.0" width="44" height="48.0" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="398" y="101.6" width="44" height="9.6" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="398" y="111.2" width="44" height="28.8" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="478" y="111.2" width="44" height="14.4" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="478" y="125.6" width="44" height="14.4" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="558" y="101.6" width="44" height="14.4" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="558" y="116.0" width="44" height="24.0" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="638" y="120.8" width="44" height="4.8" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="638" y="125.6" width="44" height="14.4" fill="#22c55e" opacity="0.85" rx="2"/>
+          <rect x="718" y="106.4" width="44" height="9.6" fill="#fbbf24" opacity="0.85" rx="2"/>
+          <rect x="718" y="116.0" width="44" height="24.0" fill="#22c55e" opacity="0.85" rx="2"/>
           <!-- value labels -->
-          <text x="105" y="36"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">20</text>
-          <text x="195" y="36"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">20</text>
-          <text x="285" y="65"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">14</text>
-          <text x="375" y="65"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">14</text>
-          <text x="465" y="94"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">8</text>
-          <text x="555" y="103"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">6</text>
-          <text x="645" y="94"   text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">8</text>
-          <text x="735" y="113"  text-anchor="middle" font-size="12" font-weight="600" fill="#22c55e">4</text>
-          <!-- 4-day moving average: (8+6+8+4)/4 = 6.5→7 → y=140-7*4.8=106.4 -->
-          <circle cx="735" cy="106.4" r="5" fill="#fbbf24"/>
-          <text x="735" y="99"  text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">7</text>
+          <text x="100" y="36" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">20</text>
+          <text x="180" y="36" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">20</text>
+          <text x="260" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">14</text>
+          <text x="340" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">14</text>
+          <text x="420" y="94" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">8</text>
+          <text x="500" y="103" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">6</text>
+          <text x="580" y="94" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">8</text>
+          <text x="660" y="113" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">4</text>
+          <text x="740" y="98" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f2f8">7</text>
+          <!-- 5% exposure line — drawn last so it sits on top -->
+          <line x1="100" y1="116" x2="180" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="180" y1="116" x2="260" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="260" y1="116" x2="340" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="340" y1="116" x2="420" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="420" y1="116" x2="500" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="500" y1="116" x2="580" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="580" y1="116" x2="660" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="660" y1="116" x2="740" y2="116" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <circle cx="100" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="180" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="260" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="340" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="420" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="500" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="580" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="660" cy="116" r="4" fill="#ffffff"/>
+          <circle cx="740" cy="116" r="4" fill="#ffffff"/>
         </svg>
       </div>
     </div>
