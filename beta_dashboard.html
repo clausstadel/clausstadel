@@ -179,6 +179,7 @@
     display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 6px;
     margin-bottom: 5px; background: var(--red-bg); color: var(--red);
     border: 1px solid var(--red-border); text-transform: uppercase; letter-spacing: 0.04em;
+    line-height: 1.4; vertical-align: middle;
   }
   .bug-title { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
   .bug-desc  { font-size: 11px; color: var(--text-2); line-height: 1.5; }
@@ -309,6 +310,7 @@
             </div>
           </div>
           <div style="font-size:10px; color:var(--text-3);">"No time" users are likely re-engageable</div>
+          <div style="font-size:10px; color:var(--text-3); margin-top:4px;">2 "Didn't like" users reported functional bugs</div>
         </div>
       </div>
 
@@ -334,13 +336,41 @@
 
     </div>
 
+    <div class="card">
+      <div class="card-header">Beta site feedback &mdash; 5 responses</div>
+      <div class="card-body" style="padding: 10px 14px;">
+        <div style="display:flex; gap:8px;">
+          <div style="flex:1; text-align:center; padding:10px 4px; background:var(--red-bg); border:1px solid var(--red-border);">
+            <div style="font-size:22px; font-weight:600; color:var(--red); line-height:1.2;">2</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">😠 Much worse</div>
+          </div>
+          <div style="flex:1; text-align:center; padding:10px 4px; background:#1f0f0f; border:1px solid #5c1a1a;">
+            <div style="font-size:22px; font-weight:600; color:#fca5a5; line-height:1.2;">1</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">😟 Worse</div>
+          </div>
+          <div style="flex:1; text-align:center; padding:10px 4px; background:var(--bg-3); border:1px solid var(--border);">
+            <div style="font-size:22px; font-weight:600; color:var(--text-2); line-height:1.2;">1</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">😐 Neutral</div>
+          </div>
+          <div style="flex:1; text-align:center; padding:10px 4px; background:#0c1f12; border:1px solid #14532d;">
+            <div style="font-size:22px; font-weight:600; color:#86efac; line-height:1.2;">0</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">🙂 Better</div>
+          </div>
+          <div style="flex:1; text-align:center; padding:10px 4px; background:var(--green-bg); border:1px solid var(--green-border);">
+            <div style="font-size:22px; font-weight:600; color:var(--green); line-height:1.2;">1</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">🤩 Much better</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scrollable switchback detail -->
     <div class="card" style="flex: 1; min-height: 0;">
       <div class="card-header">Comments from beta users</div>
       <div class="card-body" style="padding: 0; overflow-y: auto; min-height: 0;">
 
         <div class="detail-section">
-          <div class="detail-section-header">Bug reports &mdash; 3 responses</div>
+          <div class="detail-section-header">Bug reports &mdash; 6 responses</div>
           <div class="detail-section-body">
             <div>
               <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
@@ -369,11 +399,37 @@
               <div class="bug-desc">Pop-up box is blocking the view when looking at an inspection report</div>
               <div class="bug-user">...@id.dk &middot; via in-app bug report &middot; 26 May</div>
             </div>
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Comments</div>
+                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">&#128528; Neutral</div>
+              </div>
+              <div class="bug-title">Cannot post comments under checkpoint</div>
+              <div class="bug-desc">"Not able to post comment under checkpoint comment tab. Clicking it opens no further tab to type a comment."</div>
+              <div class="bug-user">...@mercana.com &middot; via feedback survey &middot; 29 May</div>
+            </div>
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Interaction</div>
+              </div>
+              <div class="bug-title">Button click has no response</div>
+              <div class="bug-desc">"Once I click the button, no response."</div>
+              <div class="bug-user">...@et2c.com &middot; via switched-back survey &middot; 1 Jun</div>
+            </div>
+            <div>
+              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
+                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">Visual</div>
+                <a href="https://qarmainspect.atlassian.net/browse/QARMA-20487" target="_blank" style="text-decoration:none;"><div class="bug-tag" style="margin-bottom:0; background:#0d2818; color:#22c55e; border-color:#166534;">&check; Done</div></a>
+              </div>
+              <div class="bug-title">Colours for checked/pending are missing</div>
+              <div class="bug-desc">"colours for checked/pending are missing"</div>
+              <div class="bug-user">...@trixie.de &middot; via switched-back survey &middot; 29 May</div>
+            </div>
           </div>
         </div>
 
         <div class="detail-section">
-          <div class="detail-section-header">Design feedback &mdash; 11 responses</div>
+          <div class="detail-section-header">Design feedback &mdash; 9 responses</div>
           <div class="detail-section-body">
             <div>
               <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
@@ -387,7 +443,7 @@
             <div>
               <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
                 <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Layout</div>
-                <div class="bug-tag" style="margin-bottom:0; background:var(--red-bg); color:var(--red); border-color:var(--red-border);">&#128128; Much worse</div>
+                <div class="bug-tag" style="margin-bottom:0; background:var(--red-bg); color:var(--red); border-color:var(--red-border);">&#128544; Much worse</div>
                 <a href="https://qarmainspect.atlassian.net/browse/QARMA-20082" target="_blank" style="text-decoration:none;"><div class="bug-tag" style="margin-bottom:0; background:#0d2818; color:#22c55e; border-color:#166534;">&check; Done</div></a>
               </div>
               <div class="bug-title">Screen too small to view photos</div>
@@ -412,17 +468,8 @@
             </div>
             <div>
               <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-                <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Comments</div>
-                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">&#128528; Neutral</div>
-              </div>
-              <div class="bug-title">Cannot post comments under checkpoint</div>
-              <div class="bug-desc">"Not able to post comment under checkpoint comment tab. Clicking it opens no further tab to type a comment."</div>
-              <div class="bug-user">...@mercana.com &middot; via feedback survey &middot; 29 May</div>
-            </div>
-            <div>
-              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
                 <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">General</div>
-                <div class="bug-tag" style="margin-bottom:0; background:var(--red-bg); color:var(--red); border-color:var(--red-border);">&#128128; Much worse</div>
+                <div class="bug-tag" style="margin-bottom:0; background:var(--red-bg); color:var(--red); border-color:var(--red-border);">&#128544; Much worse</div>
               </div>
               <div class="bug-title">Overall experience very poor, especially weekly plan</div>
               <div class="bug-desc">"The experience is very bad, especially on the weekly plan page — too much blank space at the top."</div>
@@ -438,16 +485,8 @@
             </div>
             <div>
               <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-                <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Interaction</div>
-              </div>
-              <div class="bug-title">Button click has no response</div>
-              <div class="bug-desc">"Once I click the button, no response."</div>
-              <div class="bug-user">...@et2c.com &middot; via switched-back survey &middot; 1 Jun</div>
-            </div>
-            <div>
-              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
                 <div class="bug-tag" style="margin-bottom:0; background:var(--blue-bg); color:var(--blue); border-color:var(--blue-border);">Settings</div>
-                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">&#128577;</div>
+                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">&#128577; Worse</div>
               </div>
               <div class="bug-title">Cannot find language selector</div>
               <div class="bug-desc">"Cannot find the Language select button."</div>
@@ -457,22 +496,13 @@
         </div>
 
         <div class="detail-section">
-          <div class="detail-section-header">Other reasons &mdash; 2 responses</div>
+          <div class="detail-section-header">Other reasons &mdash; 1 response</div>
           <div class="detail-section-body">
             <div>
               <div class="bug-tag" style="margin-bottom:5px; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">Other</div>
               <div class="bug-title">Not yet familiar with the new interface</div>
               <div class="bug-desc">Not yet familiar with the new interface &mdash; likely re-engageable</div>
               <div class="bug-user">...@neptune.com &middot; via switched-back survey &middot; 20 May</div>
-            </div>
-            <div>
-              <div style="display:flex; gap:6px; align-items:center; margin-bottom:5px;">
-                <div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">Other</div>
-                <a href="https://qarmainspect.atlassian.net/browse/QARMA-20487" target="_blank" style="text-decoration:none;"><div class="bug-tag" style="margin-bottom:0; background:var(--bg-3); color:var(--text-2); border-color:var(--border);">To Do</div></a>
-              </div>
-              <div class="bug-title">Colours for checked/pending are missing</div>
-              <div class="bug-desc">"colours for checked/pending are missing"</div>
-              <div class="bug-user">...@trixie.de &middot; via switched-back survey &middot; 29 May</div>
             </div>
           </div>
         </div>
