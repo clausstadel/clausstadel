@@ -16,6 +16,8 @@ Run `git status` inside `~/Work/clausstadel/` and check whether `beta_dashboard.
 
 If there are no changes, wait 1 minute and check again. Repeat every minute. If changes have still not appeared within 10 minutes (10 attempts), abort the task and report that no changes to `beta_dashboard.html` were detected.
 
+If there **are** uncommitted changes, perform an additional check: inspect the file modification time of `beta_dashboard.html` (e.g. `stat -f "%Sm" -t "%Y-%m-%d %H:%M:%S" beta_dashboard.html`). If the file was modified within the last 30 minutes, proceed to Step 2. If the file is older than 30 minutes, wait and monitor as described above in case a newer version arrives — but if no newer version has appeared after 10 minutes (10 attempts), proceed to Step 2 anyway with the existing changes.
+
 ### Step 2 — Stage, commit, and push
 
 Once changes are detected, run the following:
