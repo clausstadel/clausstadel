@@ -95,7 +95,7 @@
   /* KPI row */
   .kpi-row {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     border: 1px solid var(--border);
     flex-shrink: 0;
   }
@@ -253,6 +253,11 @@
         <div class="kpi-label">Opted out</div>
         <div class="kpi-num">92</div>
       </div>
+      <div class="kpi-cell">
+        <div class="kpi-label">Legacy sunset in</div>
+        <div class="kpi-num" id="legacy-sunset-value">&mdash;</div>
+        <div class="kpi-sub">Oct 7, 2026</div>
+      </div>
     </div>
 
     <div class="quad-grid">
@@ -371,30 +376,30 @@
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
           <div style="text-align:center; padding:10px 4px; background:var(--bg-3); border:1px solid var(--border); border-radius:4px;">
             <div style="font-size:22px; font-weight:600; color:var(--text-2); line-height:1.2;">3%</div>
-            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">25 of 904</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">25 of 903</div>
           </div>
           <div style="text-align:center; padding:10px 4px; background:var(--red-bg); border:1px solid var(--red-border); border-radius:4px;">
-            <div style="font-size:22px; font-weight:600; color:var(--red); line-height:1.2;">7%</div>
-            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">56 of 857</div>
+            <div style="font-size:22px; font-weight:600; color:var(--red); line-height:1.2;">6%</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">56 of 891</div>
           </div>
           <div style="text-align:center; padding:10px 4px; background:var(--bg-3); border:1px solid var(--border); border-radius:4px;">
             <div style="font-size:22px; font-weight:600; color:var(--text-2); line-height:1.2;">3%</div>
-            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">41 of 1,296</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">41 of 1,263</div>
           </div>
         </div>
         <div style="font-size:10px; color:var(--text-3); margin:10px 0 4px; font-weight:600; letter-spacing:0.02em;">AFTER TUE, 18 AUG</div>
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
           <div style="text-align:center; padding:10px 4px; background:var(--bg-3); border:1px solid var(--border); border-radius:4px;">
             <div style="font-size:22px; font-weight:600; color:var(--text-2); line-height:1.2;">2%</div>
-            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">11 of 657</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">11 of 629</div>
           </div>
           <div style="text-align:center; padding:10px 4px; background:var(--bg-3); border:1px solid var(--border); border-radius:4px;">
             <div style="font-size:22px; font-weight:600; color:var(--text-2); line-height:1.2;">2%</div>
-            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">17 of 689</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">17 of 686</div>
           </div>
           <div style="text-align:center; padding:10px 4px; background:var(--bg-3); border:1px solid var(--border); border-radius:4px;">
             <div style="font-size:22px; font-weight:600; color:var(--text-2); line-height:1.2;">2%</div>
-            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">15 of 749</div>
+            <div style="font-size:10px; color:var(--text-2); margin-top:3px;">15 of 780</div>
           </div>
         </div>
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-top:8px;">
@@ -402,7 +407,7 @@
           <div style="text-align:center; font-size:10px; color:var(--text-2);">🖥 Small desktop &middot; 1280&ndash;1650px</div>
           <div style="text-align:center; font-size:10px; color:var(--text-2);">🖥 Large desktop &middot; &gt;1650px</div>
         </div>
-        <div style="font-size:10px; color:var(--text-3); margin-top:8px;">Before 18 Aug: small desktop significantly elevated &middot; &chi;&sup2; p&lt;0.01 &middot; Fisher p&lt;0.01<br>After 18 Aug: no significant difference across buckets &middot; &chi;&sup2; p=0.59 &middot; Fisher p=0.41</div>
+        <div style="font-size:10px; color:var(--text-3); margin-top:8px;">Before 18 Aug: small desktop significantly elevated &middot; &chi;&sup2; p&lt;0.01 &middot; Fisher p&lt;0.01<br>After 18 Aug: no significant difference across buckets &middot; &chi;&sup2; p=0.62 &middot; Fisher p=0.33</div>
       </div>
     </div>
 
@@ -2242,6 +2247,22 @@
   <span>Updated 09 Sep 2026, 09:14</span>
 </div>
 
+<script>
+  (function () {
+    // Days until legacy sunset (7 Oct 2026), local time. Never goes below 0.
+    var TARGET = new Date(2026, 9, 7); // month is 0-indexed: 9 = October
+    function update() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var days = Math.round((TARGET - today) / 86400000);
+      if (days < 0) days = 0;
+      var el = document.getElementById('legacy-sunset-value');
+      if (el) el.textContent = days + (days === 1 ? ' day' : ' days');
+    }
+    update();
+    setInterval(update, 60 * 60 * 1000); // re-check hourly in case the page stays open
+  })();
+</script>
 </body>
 </html>
 
